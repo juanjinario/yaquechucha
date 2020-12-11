@@ -3,56 +3,83 @@
 // #F9FAFB light-gray
 // #191D2C Black
 // #00be00 green
+// #FADE19 yellow
+// #fd4d69 pink Tinder
 // https://encycolorpedia.id/4d0db1
-$palette: (
-  primary: (
-    50 : #eae2f6,
-    100 : #cab6e8,
-    200 : #a686d8,
-    300 : #8256c8,
-    400 : #6831bd,
-    500 : #4d0db1, // base
-    600 : #460baa,
-    700 : #3d09a1,
-    800 : #340798,
-    900 : #250388,
-  ),
-  accent: (
-    50 : #e0f7e0,
-    100 : #b3ecb3,
-    200 : #80df80,
-    300 : #4dd24d,
-    400 : #26c826,
-    500 : #00be00, // base
-    600 : #00b800,
-    700 : #00af00,
-    800 : #00a700,
-    900 : #009900,
-  )
+
+$primary: (
+  50 : #ffeaed,
+  100 : #fecad2,
+  200 : #fea6b4,
+  300 : #fe8296,
+  400 : #fd6880,
+  500 : #fd4d69,
+  600 : #fd4661,
+  700 : #fc3d56,
+  800 : #fc344c,
+  900 : #fc253b,
 );
 
-$light-gray: #F9FAFB;
+$accent: (
+  50 : #eae2f6,
+  100 : #cab6e8,
+  200 : #a686d8,
+  300 : #8256c8,
+  400 : #6831bd,
+  500 : #4d0db1, // base
+  600 : #460baa,
+  700 : #3d09a1,
+  800 : #340798,
+  900 : #250388,
+);
+
+$warm: (
+  50 : #e0f7e0,
+  100 : #b3ecb3,
+  200 : #80df80,
+  300 : #4dd24d,
+  400 : #26c826,
+  500 : #00be00, // base
+  600 : #00b800,
+  700 : #00af00,
+  800 : #00a700,
+  900 : #009900,
+);
+
+$palette: (
+    primary: $primary,
+    accent: $accent,
+    warm: $warm,
+);
+
+@function get-color($color, $type: 500) {
+  @if map-has-key($palette, $color) {
+      $current: map-get($palette, $color);
+      @if map-has-key($current, $type) {
+          @return map-get($current, $type);
+      }
+  }
+  @warn 'Unknown #{$color} - #{$type} in #{$palette}.';
+  @return null;
+
+}
+
+$color-light-gray: #F9FAFB;
+// other light gray #EFF2F7
 $color-black: #191D2C;
+$color-yellow: #FADE19;
 
 body {
-  $color-black: #191D2C;
+  color: $color-black;
+}
+
+h1 {
+  background: -webkit-linear-gradient(get-color(primary, 200), get-color(primary, 900));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .color-primary {
-  color: color(primary, 500);
-}
-
-@function color($color,$tone){
-  @warn map-get($palettes,$color);
-  @if map-has-key($palettes,$color){
-      $color: map-get($palettes,$color);
-          @if map-has-key($color,$tone){
-              $tone: map-get($color,$tone);
-              @return $tone;
-          }
-          @warn "unknown tone `#{$tone}` in color";
-          @return null;
-  }
-  @warn "unknown color `#{$color}` in palette";
-  @return null;
+  color: map-get(map-get($palette, primary), 500);
+  background: get-color(primary, 50);
 }
