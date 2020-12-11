@@ -1,10 +1,16 @@
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
+  line-height: 1.47em;
+  margin: 0;
+}
+
+.centered {
+  margin: 0 auto;
+  max-width: 1080px;
+  width: 100%;;
 }
