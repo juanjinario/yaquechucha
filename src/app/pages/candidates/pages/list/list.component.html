@@ -1,3 +1,7 @@
-<pre>
-  {{ candidates | json}}
-</pre>
+<!-- <h1 class="headline">Nuestros candidatos</h1> -->
+<app-cards-list class="cards-list" *ngIf="$candidates | async as candidatesList; else loadingTemplate"
+    [candidatesList]="candidatesList" (cardClick)="goToProfile($event)">
+</app-cards-list>
+<ng-template #loadingTemplate>
+  <span [@fadeInOut]>Loading</span>
+</ng-template>

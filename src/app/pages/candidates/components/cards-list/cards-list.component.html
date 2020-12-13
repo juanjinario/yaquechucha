@@ -1,0 +1,4 @@
+<article class="content" fxLayout="row wrap" fxLayoutGap="40px grid">
+  <app-card *ngFor="let candidate of candidatesList" [candidate]="candidate" (viewProfileClick)="onProfileClick($event)" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+  </app-card>
+</article>

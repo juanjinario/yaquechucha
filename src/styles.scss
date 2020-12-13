@@ -5,12 +5,36 @@ html, body {
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
-  line-height: 1.47em;
+  line-height: 1.25em;
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+p {
+  line-height: 1.47em;
+}
+
+blockquote {
+  display: inline;
+  margin: 1em 0.25em;
+  padding: 0.3em 0.75em;
 }
 
 .centered {
   margin: 0 auto;
   max-width: 1080px;
   width: 100%;;
+}
+
+.page-content {
+  box-sizing: border-box;
+  padding: 20px 40px;
+}
+
+.headline {
+  text-align: center;
 }

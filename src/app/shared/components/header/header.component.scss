@@ -1,0 +1,35 @@
+.header-bar {
+  align-items: center;
+  box-shadow: 0 1px 8px 0 rgba(0,17,25,.27);
+  display: flex;
+  padding: 10px 20px;
+  position: relative;
+  @media (min-width: 600px) {
+    box-shadow: none;
+    padding: 10px 40px;
+  }
+  .logo {
+    order: -1;
+    @media (min-width: 600px) {
+      bottom: -20px;
+      display: block;
+      margin: 0 auto;
+      left:0;
+      position: absolute;
+      right:0;
+      width: 28px;
+    }
+  }
+  nav {
+    display: inline-block;
+    margin-left: 20px;
+    @media (min-width: 600px) {
+      margin-left: none;
+    }
+    a {
+      & + a {
+        margin-left: 10px;
+      }
+    }
+  }
+}

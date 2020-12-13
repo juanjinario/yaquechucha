@@ -1,0 +1,15 @@
+<div class="card" [ngStyle]="{'background-image': 'url(' + candidate.image + ')'}" (click)="viewProfile(candidate)">
+  <div class="legend">
+    <h3 class="title">
+      <span>{{ candidate.first_name }}</span>
+      <small>{{ candidate.age }}</small>
+    </h3>
+    <div class="political-trend">
+      <i [ngClass]="['mini-badge', candidate.political_trend.toLocaleLowerCase()]"></i>
+      <span>{{ candidate.political_trend }}</span>
+    </div>
+    <p>
+
+    </p>
+  </div>
+</div>

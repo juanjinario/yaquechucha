@@ -1,0 +1,16 @@
+#app-container {
+  background: #F5F8FD;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  .router-wrapper {
+    flex:1;
+  }
+  .footer {
+    bottom: 0;
+    position: absolute;
+    width:100%;
+  }
+}
