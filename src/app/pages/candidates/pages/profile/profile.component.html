@@ -20,14 +20,14 @@
   Cargando...
 </ng-template>
 
-<div *ngIf="$proposals | async as proposalsList; else loadingProposalsTemplate">
+<section class="list-container" *ngIf="$proposals | async as proposalsList; else loadingProposalsTemplate">
   <h3>Propuestas</h3>
   <ul>
     <li *ngFor="let proposal of proposalsList">
       {{ proposal.description }}
     </li>
   </ul>
-</div>
+</section>
 <ng-template #loadingProposalsTemplate>
   Cargando...
 </ng-template>
