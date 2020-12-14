@@ -2,9 +2,9 @@
   <div class="legend">
     <h3 class="title">
       <span>{{ candidate.first_name }}</span>
-      <small>{{ candidate.age }}</small>
+      <small *ngIf="candidate.age">{{ candidate.age }}</small>
     </h3>
-    <div class="political-trend">
+    <div class="political-trend" *ngIf="candidate.political_trend">
       <i [ngClass]="['mini-badge', candidate.political_trend.toLocaleLowerCase()]"></i>
       <span>{{ candidate.political_trend }}</span>
     </div>

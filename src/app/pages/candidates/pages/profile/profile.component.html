@@ -1,16 +1,19 @@
 <div class="profile-info" *ngIf="$candidateProfile | async as candidate; else loadingProfileTemplate" fxLayout="row wrap" fxLayoutGap="4%" fxLayoutAlign=" start" [@fadeInOut]>
   <img class="main-img" [src]="candidate.image" fxFlex="33%" fxFlex.lt-sm="100">
   <section class="bio" fxFlex="63%" fxFlex.lt-sm="100">
-    <h3 class="title">{{ candidate.first_name }} {{ candidate.last_name }} <small>{{ candidate.age }}</small></h3>
-    <p class="row-text">
+    <h3 class="title">
+      {{ candidate.first_name }} {{ candidate.last_name }}
+      <small *ngIf="candidate.age">{{ candidate.age }}</small>
+    </h3>
+    <p class="row-text" *ngIf="candidate.job">
       <b>Profesión:</b>
       <span>{{ candidate.job }}</span>
     </p>
-    <p class="row-text">
+    <p class="row-text" *ngIf="candidate.political_party">
       <b>Partido Político:</b>
       <span>{{ candidate.political_party }}</span>
     </p>
-    <p class="row-text">
+    <p class="row-text" *ngIf="candidate.political_trend">
       <b>Tendencia:</b>
       <span>{{ candidate.political_trend }}</span>
     </p>
