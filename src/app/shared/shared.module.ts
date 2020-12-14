@@ -4,11 +4,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './components/header/header.component';
+import { DisorderListPipe } from './pipes/disorder-list.pipe';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    DisorderListPipe
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { HeaderComponent } from './components/header/header.component';
   exports: [
     FlexLayoutModule,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    DisorderListPipe
   ]
 })
 export class SharedModule { }
